@@ -17,6 +17,7 @@ Fix creator computation or upgrade. (http://zope.org/Collectors/CMF/300)
 $Id$
 """
 
+from Acquisition import aq_base
 from Products.CMFDefault.DublinCore import DefaultDublinCoreImpl
 
 is_cmf_1_5 = hasattr(DefaultDublinCoreImpl, 'listCreators')
