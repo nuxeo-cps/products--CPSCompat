@@ -10,14 +10,22 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""CPSCompat
+"""PatchCMFCorePortalObject
+
+Fix skin data loss during transaction.
+(http://www.zope.org/Collectors/CMF/198)
+
+Related to PatchCMFCoreSkinnable
 
 $Id$
 """
 
-from zLOG import LOG, INFO
+from PatchCMFCoreSkinnable import needs_new_skindata
 
-import PatchCMFCore
-import PatchCMFDefault
+if needs_new_skindata:
 
-LOG('CPSCompat', INFO, "Patching for Zope/CMF compatibility")
+    from Products.CMFCore.Skinnable import SkinnableObjectManager
+    from Products.CMFCore.PortalObject import PortalObjectBase
+
+    PortalObjectBase.__getattr__ = SkinnableObjectManager.__getattr__
+    PortalObjectBase._checkId = SkinnableObjectManager._checkId

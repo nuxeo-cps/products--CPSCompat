@@ -10,14 +10,10 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""CPSCompat
+"""PatchCMFCore
 
 $Id$
 """
 
-from zLOG import LOG, INFO
-
-import PatchCMFCore
-import PatchCMFDefault
-
-LOG('CPSCompat', INFO, "Patching for Zope/CMF compatibility")
+import PatchCMFCoreSkinnable
+import PatchCMFCorePortalObject
