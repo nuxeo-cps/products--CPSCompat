@@ -31,7 +31,7 @@ from Globals import InitializeClass
 from Products.CMFCore.Skinnable import SkinnableObjectManager
 
 
-needs_new_skindata = not hasattr(SkinnableObjectManager, 'SKINDATA')
+needs_new_skindata = not hasattr(SkinnableObjectManager, 'clearCurrentSkin')
 
 if needs_new_skindata:
 
