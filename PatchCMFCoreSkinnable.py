@@ -25,6 +25,8 @@ $Id$
 from zLOG import LOG, INFO, DEBUG
 from thread import get_ident
 from Acquisition import aq_base
+from AccessControl import ClassSecurityInfo
+from Globals import InitializeClass
 
 from Products.CMFCore.Skinnable import SkinnableObjectManager
 
@@ -46,6 +48,10 @@ if needs_new_skindata:
             tid = self.tid
             if SKINDATA.has_key(tid):
                 del SKINDATA[tid]
+
+
+    security = ClassSecurityInfo()
+
 
     def ___getattr__(self, name):
         '''
@@ -93,6 +99,16 @@ if needs_new_skindata:
                 REQUEST._hold(SkinDataCleanup(tid))
 
     SkinnableObjectManager.changeSkin = changeSkin
+
+
+    security.declarePublic('clearCurrentSkin')
+    def clearCurrentSkin(self):
+        """Clear the current skin."""
+        tid = get_ident()
+        if SKINDATA.has_key(tid):
+            del SKINDATA[tid]
+
+    SkinnableObjectManager.clearCurrentSkin = clearCurrentSkin
 
 
     def setupCurrentSkin(self, REQUEST=None):
@@ -144,3 +160,6 @@ if needs_new_skindata:
         return superCheckId(self, id, allow_dup)
 
     SkinnableObjectManager._checkId = _checkId
+
+    SkinnableObjectManager.security = security
+    InitializeClass(SkinnableObjectManager)
