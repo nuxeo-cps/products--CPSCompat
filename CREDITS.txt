@@ -1,0 +1,2 @@
+Contributors:
+Florent Guillaume <fg@nuxeo.com>, copyright assigned to Nuxeo
