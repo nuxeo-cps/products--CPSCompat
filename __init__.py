@@ -17,6 +17,8 @@ $Id$
 
 from zLOG import LOG, INFO
 
+import PatchZODBTransaction
+
 import PatchCMFCoreSkinnable
 import PatchCMFCorePortalObject
 

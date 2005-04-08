@@ -11,6 +11,17 @@ It has to work in the presence of various versions of Zope and CMF.
 Other products that want to monkey-patch Zope or CMF need to make sure
 they import CPSCompat first.
 
+Features
+--------
+
+- Fix creator computation or upgrade.
+  (http://zope.org/Collectors/CMF/300)
+
+- Prevent skin data loss during transaction.
+  (http://www.zope.org/Collectors/CMF/198)
+
+- Add ZODB 3.4 beforeCommitHook in transaction.
+
 License
 -------
 
