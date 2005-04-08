@@ -1,0 +1,19 @@
+*******************************************
+** CPSCompat V0.1.0 [R1 build 2005/04/08-16:03 by ben]
+
+Requires:
+~~~~~~~~~
+- WARNING this is not compatible with Speedpack!
+New features:
+~~~~~~~~~~~~~
+- Patch to fix creator computation or upgrade.
+  (http://zope.org/Collectors/CMF/300)
+- Patch for skin data loss during transaction.
+  (http://www.zope.org/Collectors/CMF/198)
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
