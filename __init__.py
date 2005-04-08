@@ -17,7 +17,9 @@ $Id$
 
 from zLOG import LOG, INFO
 
-import PatchCMFCore
-import PatchCMFDefault
+import PatchCMFCoreSkinnable
+import PatchCMFCorePortalObject
+
+import PatchCMFDefaultDublinCore
 
 LOG('CPSCompat', INFO, "Patching for Zope/CMF compatibility")
