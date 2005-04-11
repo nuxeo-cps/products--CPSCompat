@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- Patch to have ZODB 3.4 beforeCommitHook in transaction.
+-
 Bug fixes:
 ~~~~~~~~~~
 -
