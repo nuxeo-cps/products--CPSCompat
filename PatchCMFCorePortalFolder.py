@@ -10,19 +10,19 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""CPSCompat
+"""PatchCMFCorePortalFolder
+
+CMFCore.PortalFolder: Cataloging portal folders was prevented by
+overriding the typical indexing calls, but one of them was
+forgotten, so they still got cataloged.
+http://www.zope.org/Collectors/CMF/309
 
 $Id$
 """
 
-from zLOG import LOG, INFO
+from Products.CMFCore.PortalFolder import PortalFolder
 
-import PatchZODBTransaction
+def reindexObjectSecurity(self):
+    pass
 
-import PatchCMFCoreSkinnable
-import PatchCMFCorePortalObject
-import PatchCMFCorePortalFolder
-
-import PatchCMFDefaultDublinCore
-
-LOG('CPSCompat', INFO, "Patching for Zope/CMF compatibility")
+PortalFolder.reindexObjectSecurity = reindexObjectSecurity
