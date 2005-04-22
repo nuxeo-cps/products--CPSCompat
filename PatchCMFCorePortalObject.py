@@ -22,10 +22,16 @@ $Id$
 
 from PatchCMFCoreSkinnable import needs_new_skindata
 
-if needs_new_skindata:
+from Products.CMFCore.Skinnable import SkinnableObjectManager
+from Products.CMFCore.PortalObject import PortalObjectBase
 
-    from Products.CMFCore.Skinnable import SkinnableObjectManager
-    from Products.CMFCore.PortalObject import PortalObjectBase
+
+if True:
+
+    PortalObjectBase.__of__ = SkinnableObjectManager.__of__
+
+
+if needs_new_skindata:
 
     PortalObjectBase.__getattr__ = SkinnableObjectManager.__getattr__
     PortalObjectBase._checkId = SkinnableObjectManager._checkId

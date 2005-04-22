@@ -19,16 +19,51 @@ Related to PatchCMFCorePortalObect
 
 WARNING this patch is not compatible with Speedpack !
 
+Correct __of__ to not catch ConflictError.
+
 $Id$
 """
 
 from zLOG import LOG, INFO, DEBUG
 from thread import get_ident
 from Acquisition import aq_base
+from Acquisition import ImplicitAcquisitionWrapper
 from AccessControl import ClassSecurityInfo
 from Globals import InitializeClass
+from ZODB.POSException import ConflictError
 
 from Products.CMFCore.Skinnable import SkinnableObjectManager
+
+
+if True: # Fix ConflictError in __of__
+
+    security = ClassSecurityInfo()
+
+    def __of__(self, parent):
+        '''
+        Sneakily sets up the portal skin then returns the wrapper
+        that Acquisition.Implicit.__of__() would return.
+        '''
+        w_self = ImplicitAcquisitionWrapper(self, parent)
+        try:
+            w_self.setupCurrentSkin()
+        except ConflictError:
+            raise
+        except:
+            # This shouldn't happen, even if the requested skin
+            # does not exist.
+            import sys
+            from zLOG import LOG, ERROR
+            LOG('CMFCore', ERROR, 'Unable to setupCurrentSkin()',
+                error=sys.exc_info())
+        return w_self
+
+    SkinnableObjectManager.__of__ = __of__
+
+
+    SkinnableObjectManager.security = security
+    InitializeClass(SkinnableObjectManager)
+
 
 
 needs_new_skindata = not hasattr(SkinnableObjectManager, 'clearCurrentSkin')
@@ -160,6 +195,7 @@ if needs_new_skindata:
         return superCheckId(self, id, allow_dup)
 
     SkinnableObjectManager._checkId = _checkId
+
 
     SkinnableObjectManager.security = security
     InitializeClass(SkinnableObjectManager)
