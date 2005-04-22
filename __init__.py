@@ -30,6 +30,7 @@ if version == "CMF-1.5.0":
     import PatchCMFCoreSkinnable
     import PatchCMFCorePortalObject
     import PatchCMFCorePortalFolder
+    import PatchCMFCoreCMFCatalogAware
 
     import PatchCMFDefaultDublinCore
 
