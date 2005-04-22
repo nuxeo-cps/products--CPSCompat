@@ -12,40 +12,50 @@
 ##############################################################################
 """PatchCMFCoreCMFCatalogAware
 
-reindexObjectSecutiry() optimizations : CMF > 1.5.1
+reindexObjectSecutiry() optimizations: CMF >= 1.5.1
 
 $Id$
 """
 
+from zLOG import LOG, PROBLEM
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.CMFCatalogAware import CMFCatalogAware
 
-def reindexObjectSecurity(self, skip_self=False):
-    """
-        Reindex security-related indexes on the object
-        (and its descendants).
-    """
-    catalog = getToolByName(self, 'portal_catalog', None)
-    if catalog is not None:
-        path = '/'.join(self.getPhysicalPath())
-        for brain in catalog.unrestrictedSearchResults(path=path):
-            brain_path = brain.getPath()
-            # self is treated at the end of the method
-            # Optimization in case of an indexable container
-            if brain_path == path:
-                continue
-            ob = self.unrestrictedTraverse(brain_path, None)
-            if ob is None:
-                # Ignore old references to deleted objects.
-                continue
-            s = getattr(ob, '_p_changed', 0)
-            catalog.reindexObject(ob, idxs=['allowedRolesAndUsers'],
-                                  update_metadata=0)
-            if s is None: ob._p_deactivate()
-        # Reindex the object itself in here if not explicitly
-        # asked to not to
-        if not skip_self:
-            catalog.reindexObject(self, idxs=['allowedRolesAndUsers'],
-                                  update_metadata=0)
+if True:
 
-CMFCatalogAware.reindexObjectSecurity = reindexObjectSecurity
+    def reindexObjectSecurity(self, skip_self=False):
+        """
+            Reindex security-related indexes on the object
+            (and its descendants).
+        """
+        catalog = getToolByName(self, 'portal_catalog', None)
+        if catalog is not None:
+            path = '/'.join(self.getPhysicalPath())
+            for brain in catalog.unrestrictedSearchResults(path=path):
+                brain_path = brain.getPath()
+                # self is treated at the end of the method
+                # Optimization in case of an indexable container
+                if brain_path == path:
+                    continue
+                # Get the object
+                if hasattr(aq_base(brain), '_unrestrictedGetObject'):
+                    ob = brain._unrestrictedGetObject()
+                else:
+                    # BBB older Zope
+                    ob = self.unrestrictedTraverse(brain_path, None)
+                if ob is None:
+                    # Ignore old references to deleted objects.
+                    LOG('reindexObjectSecurity', PROBLEM,
+                        "Cannot get %s from catalog" % brain_path)
+                    continue
+                s = getattr(ob, '_p_changed', 0)
+                catalog.reindexObject(ob, idxs=['allowedRolesAndUsers'],
+                                      update_metadata=0)
+                if s is None: ob._p_deactivate()
+            # Reindex the object itself in here if not explicitly
+            # asked to not to
+            if not skip_self:
+                catalog.reindexObject(self, idxs=['allowedRolesAndUsers'],
+                                      update_metadata=0)
+
+    CMFCatalogAware.reindexObjectSecurity = reindexObjectSecurity
