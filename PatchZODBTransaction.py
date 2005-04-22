@@ -18,14 +18,14 @@ $Id$
 """
 
 try:
-    # ZODB 3.4
-    import transaction
-    has_before_commit_hook = True
-except ImportError, e:
-    if str(e) != 'No module named transaction': raise
-    # ZODB 3.2
     from ZODB.Transaction import Transaction
+    # ZODB 3.2
     has_before_commit_hook = hasattr(Transaction, 'beforeCommitHook')
+except ImportError, e:
+    if str(e) != 'No module named Transaction': raise
+    # ZODB 3.4
+    has_before_commit_hook = True
+
 
 if not has_before_commit_hook:
 

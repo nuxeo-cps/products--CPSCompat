@@ -6,7 +6,7 @@ New features:
 - http://www.zope.org/Collectors/CMF/309
 Bug fixes:
 ~~~~~~~~~~
--
+- #610: Fix for Zope 2.7 + Five compatibility.
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
