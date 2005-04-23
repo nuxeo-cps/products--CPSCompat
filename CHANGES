@@ -8,6 +8,7 @@ New features:
 Bug fixes:
 ~~~~~~~~~~
 - #610: Fix for Zope 2.7 + Five compatibility.
+- PatchCMFCoreCMFCatalogAware.py: 'aq_base' was not defined 
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -

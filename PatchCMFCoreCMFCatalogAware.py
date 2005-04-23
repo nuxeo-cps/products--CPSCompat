@@ -18,6 +18,8 @@ $Id$
 """
 
 from zLOG import LOG, PROBLEM
+from Acquisition import aq_base
+
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.CMFCatalogAware import CMFCatalogAware
 
