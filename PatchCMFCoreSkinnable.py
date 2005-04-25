@@ -15,7 +15,7 @@
 Fix skin data loss during transaction.
 (http://www.zope.org/Collectors/CMF/198)
 
-Related to PatchCMFCorePortalObect
+Related to PatchCMFCorePortalObject
 
 WARNING this patch is not compatible with Speedpack !
 
