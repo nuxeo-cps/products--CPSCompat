@@ -12,7 +12,7 @@
 ##############################################################################
 """PatchCMFCoreCMFCatalogAware
 
-reindexObjectSecutiry() optimizations: CMF >= 1.5.1
+reindexObjectSecutiry() optimizations: CMF > 1.5.1
 
 $Id$
 """
