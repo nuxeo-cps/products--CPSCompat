@@ -26,4 +26,7 @@ import PatchCMFCoreCMFCatalogAware
 
 import PatchCMFDefaultDublinCore
 
+import PatchDCWorkflowGuard
+import PatchDCWorkflowDCWorkflow
+
 LOG('CPSCompat', INFO, "Patching for Zope/CMF compatibility")
