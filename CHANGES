@@ -5,6 +5,7 @@ New features:
 ~~~~~~~~~~~~~
 - http://www.zope.org/Collectors/CMF/309
 - reindexObjectSecurity() optimization : CMF > 1.5.1
+- getBeforeCommitHooks() added to Transaction
 Bug fixes:
 ~~~~~~~~~~
 - #610: Fix for Zope 2.7 + Five compatibility.

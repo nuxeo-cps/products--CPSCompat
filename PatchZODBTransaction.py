@@ -41,6 +41,10 @@ if not has_before_commit_hook:
     Transaction._old_init = Transaction._init
     Transaction._init = _init
 
+    def getBeforeCommitHooks(self):
+        return iter(self._before_commit)
+    Transaction.getBeforeCommitHooks = getBeforeCommitHooks
+
     def beforeCommitHook(self, hook, *args, **kws):
         self._before_commit.append((hook, args, kws))
     Transaction.beforeCommitHook = beforeCommitHook
