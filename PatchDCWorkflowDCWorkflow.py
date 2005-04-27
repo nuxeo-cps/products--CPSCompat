@@ -21,6 +21,10 @@ CMF > 1.5.1
 $Id$
 """
 
+from AccessControl import Unauthorized
+
+from Products.CMFCore.WorkflowCore import WorkflowException
+
 from Products.DCWorkflow.Transitions import TRIGGER_USER_ACTION
 from Products.DCWorkflow.DCWorkflow import DCWorkflowDefinition
 
@@ -42,4 +46,24 @@ if True:
                 return 1
         return 0
 
+    def doActionFor(self, ob, action, comment='', **kw):
+        '''
+        Allows the user to request a workflow action.  This method
+        must perform its own security checks.
+        '''
+        kw['comment'] = comment
+        sdef = self._getWorkflowStateOf(ob)
+        if sdef is None:
+            raise WorkflowException, 'Object is in an undefined state'
+        if action not in sdef.transitions:
+            raise Unauthorized(action)
+        tdef = self.transitions.get(action, None)
+        if tdef is None or tdef.trigger_type != TRIGGER_USER_ACTION:
+            raise WorkflowException, (
+                'Transition %s is not triggered by a user action' % action)
+        if not self._checkTransitionGuard(tdef, ob, **kw):
+            raise Unauthorized(action)
+        self._changeStateOf(ob, tdef, kw)
+
 DCWorkflowDefinition.isActionSupported = isActionSupported
+DCWorkflowDefinition.doActionFor = doActionFor
