@@ -22,6 +22,7 @@ $Id$
 """
 
 from AccessControl import Unauthorized
+from AccessControl import getSecurityManager
 
 from Products.CMFCore.WorkflowCore import WorkflowException
 
