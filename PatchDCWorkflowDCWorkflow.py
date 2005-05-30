@@ -65,5 +65,15 @@ if True:
             raise Unauthorized(action)
         self._changeStateOf(ob, tdef, kw)
 
+    def _checkTransitionGuard(self, t, ob, **kw):
+        guard = t.guard
+        if guard is None:
+            return 1
+        if guard.check(getSecurityManager(), self, ob, **kw):
+            return 1
+        return 0
+
+
 DCWorkflowDefinition.isActionSupported = isActionSupported
 DCWorkflowDefinition.doActionFor = doActionFor
+DCWorkflowDefinition._checkTransitionGuard = _checkTransitionGuard
