@@ -1,4 +1,20 @@
 *******************************************
+** CPSCompat V0.3.1 [R1 build 2005/06/02-09:30 by fguillaume]
+** SVN URL: https://svn.nuxeo.org/pub/CPSCompat/trunk Revision: 22058
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+- Correctly propagate **kw in _checkTransitionGuard()
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSCompat V0.3.0 [R1 build 2005/05/16-12:56 by anahide]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSCompat/trunk Revision: 21583
 Requires:
