@@ -25,6 +25,8 @@ from Products.CMFCore.CMFCatalogAware import CMFCatalogAware
 
 if True:
 
+    _cmf_security_indexes = ('allowedRolesAndUsers',)
+
     def reindexObjectSecurity(self, skip_self=False):
         """
             Reindex security-related indexes on the object
@@ -51,13 +53,14 @@ if True:
                         "Cannot get %s from catalog" % brain_path)
                     continue
                 s = getattr(ob, '_p_changed', 0)
-                catalog.reindexObject(ob, idxs=['allowedRolesAndUsers'],
+                catalog.reindexObject(ob, idxs=self._cmf_security_indexes,
                                       update_metadata=0)
                 if s is None: ob._p_deactivate()
             # Reindex the object itself in here if not explicitly
             # asked to not to
             if not skip_self:
-                catalog.reindexObject(self, idxs=['allowedRolesAndUsers'],
+                catalog.reindexObject(self, idxs=self._cmf_security_indexes,
                                       update_metadata=0)
 
+    CMFCatalogAware._cmf_security_indexes = _cmf_security_indexes
     CMFCatalogAware.reindexObjectSecurity = reindexObjectSecurity

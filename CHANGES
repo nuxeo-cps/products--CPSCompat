@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- Patch to get latest CMFCatalogAware _cmf_security_indexes attribute.
 Bug fixes:
 ~~~~~~~~~~
 -
