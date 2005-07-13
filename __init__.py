@@ -29,4 +29,13 @@ import PatchCMFDefaultDublinCore
 import PatchDCWorkflowGuard
 import PatchDCWorkflowDCWorkflow
 
+# DCWorkflowGraph is not always present
+try:
+    from Products import DCWorkflowGraph
+except ImportError, e:
+    if str(e) != 'cannot import name DCWorkflowGraph':
+        raise
+else:
+    import PatchDCWorkflowGraphDCWorkflowGraph
+
 LOG('CPSCompat', INFO, "Patching for Zope/CMF compatibility")

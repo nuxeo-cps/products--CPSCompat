@@ -4,6 +4,7 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - Patch to get latest CMFCatalogAware _cmf_security_indexes attribute.
+- Patch to get the "Graph" tab in a CPS worklow using DCWorkflowGraph
 Bug fixes:
 ~~~~~~~~~~
 -
