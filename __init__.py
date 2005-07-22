@@ -19,16 +19,6 @@ from zLOG import LOG, INFO
 
 import PatchZODBTransaction
 
-import PatchCMFCoreSkinnable
-import PatchCMFCorePortalObject
-import PatchCMFCorePortalFolder
-import PatchCMFCoreCMFCatalogAware
-
-import PatchCMFDefaultDublinCore
-
-import PatchDCWorkflowGuard
-import PatchDCWorkflowDCWorkflow
-
 # DCWorkflowGraph is not always present
 try:
     from Products import DCWorkflowGraph
@@ -38,4 +28,4 @@ except ImportError, e:
 else:
     import PatchDCWorkflowGraphDCWorkflowGraph
 
-LOG('CPSCompat', INFO, "Patching for Zope/CMF compatibility")
+LOG('CPSCompat', INFO, "Patching for Zope/CMF forward compatibility")
