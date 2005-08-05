@@ -1,9 +1,9 @@
 Requires:
 ~~~~~~~~~
-- CMF 1.5.2
+-
 New features:
 ~~~~~~~~~~~~~
-- Patch to get the "Graph" tab in a CPS worklow using DCWorkflowGraph
+-
 Bug fixes:
 ~~~~~~~~~~
 -
