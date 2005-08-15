@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
--
+- Add ZODB 3.5 ordering support for before commit hook
 Bug fixes:
 ~~~~~~~~~~
 -

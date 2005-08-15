@@ -14,6 +14,8 @@ they import CPSCompat first.
 Features
 --------
 
+- Add ZODB 3.5 ordering support for before commit hook
+
 - Add ZODB 3.4 beforeCommitHook in transaction.
 
 - Add a Graph tab in workflows for DCWorkflowGraph.
