@@ -17,9 +17,6 @@ $Id$
 
 from zLOG import LOG, INFO
 
-import PatchCMFCoreCatalogTool
-import PatchCMFCoreCMFCatalogAware
-import PatchCMFCorePortalFolder
 import PatchZODBTransaction
 
 # DCWorkflowGraph is not always present
