@@ -4,7 +4,6 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - Add new ZODB 3.5 addBeforeCommitHook() API
-- CMF > 1.5.3 : allow root doted prefixed object name overrides
 Bug fixes:
 ~~~~~~~~~~
 -
