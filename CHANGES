@@ -1,6 +1,6 @@
 Requires:
 ~~~~~~~~~
--
+- CMF 1.5.4
 New features:
 ~~~~~~~~~~~~~
 - Add new ZODB 3.5 addBeforeCommitHook() API
