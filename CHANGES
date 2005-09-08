@@ -4,6 +4,7 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - Add new ZODB 3.5 addBeforeCommitHook() API
+- CMF > 1.5.4 : refactoring of CMFCatalogAware (PatchCMFCoreCMFCatalogAware)
 Bug fixes:
 ~~~~~~~~~~
 -
