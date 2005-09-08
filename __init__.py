@@ -19,6 +19,7 @@ from zLOG import LOG, INFO
 
 import PatchCMFCoreCMFCatalogAware
 import PatchZODBTransaction
+import PatchCMFSetupUtils
 
 # DCWorkflowGraph is not always present
 try:
