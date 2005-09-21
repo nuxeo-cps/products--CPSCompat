@@ -1,11 +1,9 @@
 Requires:
 ~~~~~~~~~
-- CMF 1.5.4
+-
 New features:
 ~~~~~~~~~~~~~
-- Add new ZODB 3.5 addBeforeCommitHook() API
-- CMF > 1.5.4: refactoring of CMFCatalogAware (PatchCMFCoreCMFCatalogAware)
-- CMF > 1.5.4: fixed CMFSetup to export old list properties
+-
 Bug fixes:
 ~~~~~~~~~~
 -

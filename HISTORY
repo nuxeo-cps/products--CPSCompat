@@ -1,4 +1,22 @@
 *******************************************
+** CPSCompat V0.5.0 [R1 build 2005/09/21-14:55 by fguillaume]
+** SVN URL: https://svn.nuxeo.org/pub/CPSCompat/trunk Revision: 27306
+Requires:
+~~~~~~~~~
+- CMF 1.5.4
+New features:
+~~~~~~~~~~~~~
+- Add new ZODB 3.5 addBeforeCommitHook() API
+- CMF > 1.5.4: refactoring of CMFCatalogAware (PatchCMFCoreCMFCatalogAware)
+- CMF > 1.5.4: fixed CMFSetup to export old list properties
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+
+*******************************************
 ** CPSCompat V0.4.0 [R1 build 2005/08/05-13:52 by ben]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSCompat/trunk Revision: 25426
 Requires:
