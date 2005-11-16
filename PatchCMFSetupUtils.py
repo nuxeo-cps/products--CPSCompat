@@ -10,12 +10,68 @@
 # FOR A PARTICULAR PURPOSE.
 #
 ##############################################################################
-"""Patch CMFSetup.utils to allow export of old list properties.
+"""Patch CMFSetup.utils for code available in CMF > 1.5.4.
 
-Available in CMF > 1.5.4.
+ - Allow export of old list properties.
 """
 
 from Products.CMFSetup.utils import ExportConfiguratorBase
+from Products.CMFSetup.utils import ImportConfiguratorBase
+
+
+if False: # Keep indentation
+
+    def _extractNode(self, node):
+
+        nodes_map = self._getImportMapping()
+        if node.nodeName not in nodes_map:
+            nodes_map = self._getSharedImportMapping()
+            if node.nodeName not in nodes_map:
+                raise ValueError('Unknown node: %s' % node.nodeName)
+        node_map = nodes_map[node.nodeName]
+        info = {}
+
+        for name, val in node.attributes.items():
+            key = node_map[name].get( KEY, str(name) )
+            val = self._encoding and val.encode(self._encoding) or val
+            info[key] = val
+
+        for child in node.childNodes:
+            name = child.nodeName
+
+            if name == '#comment':
+                continue
+
+            if not name == '#text':
+                key = node_map[name].get(KEY, str(name) )
+                info[key] = info.setdefault( key, () ) + (
+                                                    self._extractNode(child),)
+
+            elif '#text' in node_map:
+                key = node_map['#text'].get(KEY, 'value')
+                val = child.nodeValue.lstrip()
+                val = self._encoding and val.encode(self._encoding) or val
+                info[key] = info.setdefault(key, '') + val
+
+        for k, v in node_map.items():
+            key = v.get(KEY, k)
+
+            if DEFAULT in v and not key in info:
+                if isinstance( v[DEFAULT], basestring ):
+                    info[key] = v[DEFAULT] % info
+                else:
+                    info[key] = v[DEFAULT]
+
+            elif CONVERTER in v and key in info:
+                info[key] = v[CONVERTER]( info[key] )
+
+            if key is None:
+                info = info[key]
+
+        return info
+
+    ImportConfiguratorBase._extractNode = _extractNode
+
 
 if True: # Keep indentation
 
