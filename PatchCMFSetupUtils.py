@@ -19,7 +19,7 @@
 
 from Products.CMFSetup.utils import ExportConfiguratorBase
 from Products.CMFSetup.utils import ImportConfiguratorBase
-
+from Products.CMFSetup.utils import CONVERTER, DEFAULT, KEY
 
 if True: # Keep indentation
 
