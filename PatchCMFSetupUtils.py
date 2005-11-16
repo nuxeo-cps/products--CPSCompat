@@ -13,13 +13,15 @@
 """Patch CMFSetup.utils for code available in CMF > 1.5.4.
 
  - Allow export of old list properties.
+
+ - Correct import of empty attributes when an encoding is specified.
 """
 
 from Products.CMFSetup.utils import ExportConfiguratorBase
 from Products.CMFSetup.utils import ImportConfiguratorBase
 
 
-if False: # Keep indentation
+if True: # Keep indentation
 
     def _extractNode(self, node):
 
@@ -33,7 +35,8 @@ if False: # Keep indentation
 
         for name, val in node.attributes.items():
             key = node_map[name].get( KEY, str(name) )
-            val = self._encoding and val.encode(self._encoding) or val
+            if self._encoding is not None:
+                val = val.encode(self._encoding)
             info[key] = val
 
         for child in node.childNodes:
@@ -50,7 +53,8 @@ if False: # Keep indentation
             elif '#text' in node_map:
                 key = node_map['#text'].get(KEY, 'value')
                 val = child.nodeValue.lstrip()
-                val = self._encoding and val.encode(self._encoding) or val
+                if self._encoding is not None:
+                    val = val.encode(self._encoding)
                 info[key] = info.setdefault(key, '') + val
 
         for k, v in node_map.items():
