@@ -9,4 +9,6 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- optimize CMFCore TypesTool TypeInformation.allowType by removing unused
+  backward compatibility (part of #1134).
+
