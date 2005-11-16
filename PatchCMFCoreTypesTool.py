@@ -25,6 +25,9 @@ if True: # Keep indentation
         """
             Can objects of 'contentType' be added to containers whose
             type object we are?
+
+            'contentType' must be an id, no more backward compatibility on
+            Title.
         """
         if not self.filter_content_types:
             ti = self.getTypeInfo( contentType )
@@ -37,11 +40,6 @@ if True: # Keep indentation
 
         if contentType in self.allowed_content_types:
             return 1
-
-        # Backward compatibility for code that expected Type() to work.
-        for ti in self.listTypeInfo():
-            if ti.Title() == contentType:
-                return ti.getId() in self.allowed_content_types
 
         return 0
 
