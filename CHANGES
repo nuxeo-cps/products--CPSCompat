@@ -9,6 +9,7 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
-- optimize CMFCore TypesTool TypeInformation.allowType by removing unused
+- tune #1134: CMF allowedContentTypes is too slow
+  optimize CMFCore TypesTool TypeInformation.allowType by removing unused
   backward compatibility (part of #1134).
 
