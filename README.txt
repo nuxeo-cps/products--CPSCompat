@@ -20,10 +20,6 @@ Features
 
 - Add a Graph tab in workflows for DCWorkflowGraph.
 
-- Add CMFCatalogAware fixes to choose catalog/wf tool (CMF > 1.5.4)
-
-- Add bugfixes for CMFSetup (CMF > 1.5.4)
-
 License
 -------
 
