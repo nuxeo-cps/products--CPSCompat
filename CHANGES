@@ -3,7 +3,7 @@ Requires:
 - CMF 1.5.5
 New features:
 ~~~~~~~~~~~~~
--
+- Better ConflictError logging (from Zope 2.9).
 Bug fixes:
 ~~~~~~~~~~
 -

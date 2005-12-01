@@ -20,6 +20,8 @@ Features
 
 - Add a Graph tab in workflows for DCWorkflowGraph.
 
+- Better ConflictError logging (from Zope 2.9).
+
 License
 -------
 
