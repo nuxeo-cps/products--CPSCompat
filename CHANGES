@@ -9,4 +9,4 @@ Bug fixes:
 -
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
--
+- Do not support Zope-2.7.x for the ZODB patch
