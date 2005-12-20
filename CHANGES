@@ -10,3 +10,5 @@ Bug fixes:
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 - Do not support Zope-2.7.x for the ZODB patch
+- Remove the ZODB 3.6 transaction compat patches since CPS requires
+Zope-2.9.x now .

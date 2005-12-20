@@ -17,7 +17,6 @@ $Id$
 
 from zLOG import LOG, INFO
 
-import PatchZODBTransaction
 import PatchPublisherConflictErrors
 
 # DCWorkflowGraph is not always present
