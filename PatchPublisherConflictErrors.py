@@ -43,18 +43,13 @@ def zpublisher_exception_hook(published, REQUEST, t, v, traceback):
                 LOG('ZODB', BLATHER, "%s at %s: %s"
                     " (%s conflicts since startup at %s)"
                     % (v.__class__.__name__, method_name, v,
-                       conflict_errors, Zope2.App.startup.startup_time),
-                    error=(t, v, traceback))
+                       conflict_errors, Zope2.App.startup.startup_time))
                 raise ZPublisher.Retry(t, v, traceback)
             if t is ZPublisher.Retry:
                 # An exception that can't be retried anymore
                 # Retrieve the original exception
                 try: v.reraise()
                 except: t, v, traceback = sys.exc_info()
-                # Log it as ERROR
-                method_name = REQUEST.get('PATH_INFO', '')
-                LOG('Publisher', ERROR, "Unhandled %s at %s: %s"
-                    % (v.__class__.__name__, method_name, v))
                 # Then fall through to display the error to the user
 
         try:
