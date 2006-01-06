@@ -4,6 +4,7 @@ Requires:
 New features:
 ~~~~~~~~~~~~~
 - Better ConflictError logging (from Zope 2.9).
+- after commit hook support. (ZODB 3.7)
 Bug fixes:
 ~~~~~~~~~~
 -
