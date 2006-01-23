@@ -1,4 +1,23 @@
 *******************************************
+** CPSCompat V0.6.0 [R1 build 2006/01/23-17:27 by fermigier]
+** SVN URL: https://svn.nuxeo.org/pub/CPSCompat/trunk Revision: 31976
+Requires:
+~~~~~~~~~
+- CMF 1.5.5
+New features:
+~~~~~~~~~~~~~
+- Better ConflictError logging (from Zope 2.9).
+- after commit hook support. (ZODB 3.7)
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- Do not support Zope-2.7.x for the ZODB patch
+- Remove the ZODB 3.6 transaction compat patches since CPS requires
+Zope-2.9.x now .
+
+*******************************************
 ** CPSCompat V0.5.0 [R1 build 2005/09/21-14:55 by fguillaume]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSCompat/trunk Revision: 27306
 Requires:
