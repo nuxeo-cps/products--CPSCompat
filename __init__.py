@@ -17,6 +17,7 @@ $Id$
 
 from zLOG import LOG, INFO
 
+import PatchOFSApplication
 import PatchPublisherConflictErrors
 import PatchZODBTransaction
 

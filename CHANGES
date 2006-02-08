@@ -6,7 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
--
+- Fix : transaction().abort() -> transaction.abort() / rev 41573
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
