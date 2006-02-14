@@ -15,11 +15,17 @@
 $Id$
 """
 
+import sys
+
 from zLOG import LOG, INFO
 
 import PatchOFSApplication
 import PatchPublisherConflictErrors
 import PatchZODBTransaction
+
+from OFS.ObjectManager import ObjectManager
+
+from Globals import DTMLFile
 
 # DCWorkflowGraph is not always present
 try:
@@ -29,5 +35,12 @@ except ImportError, e:
         raise
 else:
     import PatchDCWorkflowGraphDCWorkflowGraph
+
+try:
+    from Products import ExternalEditor
+    # Monkey patch manage_main so that the urls are encoded properly
+    ObjectManager.manage_main = DTMLFile('manage_main', globals())
+except ImportError:
+    if sys.exc_info()[2].tb_next is not None: raise
 
 LOG('CPSCompat', INFO, "Patching for Zope/CMF forward compatibility")
