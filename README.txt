@@ -14,7 +14,13 @@ they import CPSCompat first.
 Features
 --------
 
-- Add ZODB 3.5 ordering support for before commit hook
+- External Editor fix : creation of "CPS Flexible Type Information"
+  failed if the javascript was disabled
+
+- OFS.Application fix : transaction().abort() -> transaction.abort() /
+  rev 41573
+
+- Add ZODB 3.7 after commit hook support
 
 - Add a Graph tab in workflows for DCWorkflowGraph.
 
