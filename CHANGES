@@ -6,12 +6,7 @@ New features:
 -
 Bug fixes:
 ~~~~~~~~~~
-- CMFCore.FSPythonScript: FSPythonScripts forgot to add __file__ to
-  the script globals. This broke warnings.warn() when a stacklevel
-  argument pointing into the script was passed (2).
-- Fix : transaction().abort() -> transaction.abort() / rev 41573
-- #1330: creation of "CPS Flexible Type Information" failed if the javascript 
-  was disabled
+-
 New internal features:
 ~~~~~~~~~~~~~~~~~~~~~~
 -
