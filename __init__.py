@@ -20,6 +20,7 @@ import sys
 from zLOG import LOG, INFO
 
 import PatchOFSApplication
+import PatchCMFCoreFSPythonScript
 import PatchPublisherConflictErrors
 import PatchZODBTransaction
 
