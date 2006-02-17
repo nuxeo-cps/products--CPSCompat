@@ -12,7 +12,7 @@
 ##############################################################################
 """ Fix for CMFCore.FSPythonScript
 
-revision 41636:
+Fixed in CMF 1.6 branch : revision 41636:
 
 CMFCore.FSPythonScript: FSPythonScripts forgot to add __file__ to
 the script globals. This broke warnings.warn() when a stacklevel
