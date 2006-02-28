@@ -17,7 +17,7 @@ $Id$
 
 import sys
 
-from zLOG import LOG, INFO
+from zLOG import LOG, DEBUG
 
 import PatchOFSApplication
 import PatchPublisherConflictErrors
@@ -43,4 +43,4 @@ try:
 except ImportError:
     if sys.exc_info()[2].tb_next is not None: raise
 
-LOG('CPSCompat', INFO, "Patching for Zope/CMF forward compatibility")
+LOG('CPSCompat', DEBUG, "Patching for Zope/CMF forward compatibility")
