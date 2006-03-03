@@ -1,4 +1,20 @@
 *******************************************
+** CPSCompat V0.7.0 [R1 build 2006/03/03-17:44 by ben]
+** SVN URL: https://svn.nuxeo.org/pub/CPSCompat/trunk Revision: 33914
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+-
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+- update __init__
+
+*******************************************
 ** CPSCompat V0.6.1 [R1 build 2006/02/17-20:15 by fermigier]
 ** SVN URL: https://svn.nuxeo.org/pub/CPSCompat/trunk Revision: 32986
 Requires:
