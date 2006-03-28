@@ -151,7 +151,7 @@ def install_product(app, product_dir, product_name, meta_types,
         except:
             if log_exc:
                 logger.error('Couldn\'t install %s (error: %s)' % (product_name, 
-                    error=sys.exc_info()))
+                    sys.exc_info()))
             transaction.abort()
             if raise_exc:
                 raise
