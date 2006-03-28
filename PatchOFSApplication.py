@@ -23,6 +23,9 @@ $Id: $
 """
 
 from OFS.Application import *
+import logging
+
+logger = logging.getLogger("CPSCompat.PatchOFSApplication")
 
 def install_product(app, product_dir, product_name, meta_types,
                     folder_permissions, raise_exc=0, log_exc=1):
@@ -147,7 +150,7 @@ def install_product(app, product_dir, product_name, meta_types,
 
         except:
             if log_exc:
-                LOG('Zope',ERROR,'Couldn\'t install %s' % product_name,
+                logger.error('Couldn\'t install %s' % product_name, 
                     error=sys.exc_info())
             transaction.abort()
             if raise_exc:
