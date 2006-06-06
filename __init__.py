@@ -16,11 +16,9 @@ $Id$
 """
 
 import sys
-
-from zLOG import LOG, DEBUG
+import logging
 
 import PatchOFSApplication
-import PatchPublisherConflictErrors
 import PatchZODBTransaction
 
 from OFS.ObjectManager import ObjectManager
@@ -43,4 +41,5 @@ try:
 except ImportError:
     if sys.exc_info()[2].tb_next is not None: raise
 
-LOG('CPSCompat', DEBUG, "Patching for Zope/CMF forward compatibility")
+logging.getLogger('CPSCompat').debug(
+    "Patching for Zope/CMF forward compatibility")

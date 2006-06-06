@@ -17,8 +17,6 @@ Patch needed to get the "Graph" tab in a CPS worklow using DCWorkflowGraph
 $Id$
 """
 
-from zLOG import LOG, DEBUG
-
 import os
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.DCWorkflowGraph.DCWorkflowGraph import getGraph
