@@ -18,7 +18,6 @@ $Id$
 import sys
 import logging
 
-import PatchOFSApplication
 import PatchZODBTransaction
 
 from OFS.ObjectManager import ObjectManager
