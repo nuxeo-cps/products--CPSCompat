@@ -3,7 +3,7 @@ Requires:
 -
 New features:
 ~~~~~~~~~~~~~
-- PatchPublisherConflictErrors is not needed anymore as Zope 2.9 is used.
+-
 Bug fixes:
 ~~~~~~~~~~
 -
