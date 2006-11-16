@@ -1,3 +1,25 @@
+===========================================================
+Package: CPSCompat 0.8.1
+===========================================================
+First release built by: gracinet at: 2006-11-16T18:14:21
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSCompat/tags/0.8.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSCompat/trunk@50008
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- [packaging] bundleman svn property
+- backported fix from ExternalEditor 0.9.2 on manage_main.dtml to make it work
+  with Zope >= 2.9.5
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
 *******************************************
 ** CPSCompat V0.8.0 [R1 build 2006/08/03-08:57 by fermigier]
 ** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSCompat/trunk Revision: 47779
