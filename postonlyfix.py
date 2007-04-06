@@ -15,6 +15,8 @@
 
 Protect security methods against GET requests.
 
+Remove this fix when CPS uses Zope >= 2.9.7
+
 $Id$
 """
 
