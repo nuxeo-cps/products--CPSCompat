@@ -1,4 +1,25 @@
 ===========================================================
+Package: CPSCompat 0.8.2
+===========================================================
+First release built by: madarche at: 2007-04-06T17:23:26
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSCompat/tags/0.8.2
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSCompat/trunk@51468
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Added a modified version of the "post-only" Hotfix_20070319 for the
+  CPSUserFolder product.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSCompat 0.8.1
 ===========================================================
 First release built by: gracinet at: 2006-11-16T18:14:21
