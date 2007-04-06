@@ -74,35 +74,14 @@ def postonly(callable):
     exec _buildFacade(spec, callable.__doc__) in facade_globs
     return facade_globs['_facade']
 
-# Add REQUEST to BasicUserFolder.userFolder* methods as well as protect them
-from AccessControl.User import BasicUserFolder
-
 from Products.CPSUserFolder.CPSUserFolder import CPSUserFolder
+CPSUserFolder.userFolderAddUser = postonly(CPSUserFolder.userFolderAddUser)
+CPSUserFolder.userFolderEditUser = postonly(CPSUserFolder.userFolderEditUser)
+CPSUserFolder.userFolderDelUsers = postonly(CPSUserFolder.userFolderDelUsers)
+CPSUserFolder.userFolderAddGroup = postonly(CPSUserFolder.userFolderAddGroup)
+CPSUserFolder.userFolderDelGroups = postonly(CPSUserFolder.userFolderDelGroups)
 
-#_original_ufAddUser = BasicUserFolder.userFolderAddUser
-_original_ufAddUser = CPSUserFolder.userFolderAddUser
-def ufAddUser(self, name, password, roles, domains, REQUEST=None, **kw):
-    return _original_ufAddUser(self, name, password, roles, domains, **kw)
-ufAddUser.__doc__ = _original_ufAddUser.__doc__
-#BasicUserFolder.userFolderAddUser = postonly(ufAddUser)
-CPSUserFolder.userFolderAddUser = postonly(ufAddUser)
-
-#_original_ufEditUser = BasicUserFolder.userFolderEditUser
-_original_ufEditUser = CPSUserFolder.userFolderEditUser
-def ufEditUser(self, name, password, roles, domains, REQUEST=None, **kw):
-    return _original_ufEditUser(self, name, password, roles, domains, **kw)
-ufEditUser.__doc__ = _original_ufEditUser.__doc__
-#BasicUserFolder.userFolderEditUser = postonly(ufEditUser)
-CPSUserFolder.userFolderEditUser = postonly(ufEditUser)
-
-#_original_ufDelUsers = BasicUserFolder.userFolderDelUsers
-_original_ufDelUsers = CPSUserFolder.userFolderDelUsers
-def ufDelUsers(self, names, REQUEST=None):
-    return _original_ufDelUsers(self, names)
-ufDelUsers.__doc__ = _original_ufDelUsers.__doc__
-#BasicUserFolder.userFolderDelUsers = postonly(ufDelUsers)
-CPSUserFolder.userFolderDelUsers = postonly(ufDelUsers)
-
+from AccessControl.User import BasicUserFolder
 BasicUserFolder.manage_setUserFolderProperties = postonly(
     BasicUserFolder.manage_setUserFolderProperties)
 BasicUserFolder._addUser = postonly(BasicUserFolder._addUser)

@@ -6,7 +6,8 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
-- Added modified version of Hotfix_20070319 for the CPSUserFolder product.
+- Added a modified version of the "post-only" Hotfix_20070319 for the
+  CPSUserFolder product.
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
