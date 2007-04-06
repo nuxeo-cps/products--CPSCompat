@@ -15,14 +15,15 @@
 $Id$
 """
 
-import sys
 import logging
+import sys
 
 import PatchZODBTransaction
 
 from OFS.ObjectManager import ObjectManager
-
 from Globals import DTMLFile
+
+import postonlyfix
 
 # DCWorkflowGraph is not always present
 try:
