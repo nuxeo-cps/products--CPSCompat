@@ -15,98 +15,13 @@
 
 Protect security methods against GET requests.
 
-Remove this fix when CPS uses Zope >= 2.9.7
+Remove this fix when CPS followed method are protected in Zope
 
 $Id$
 """
+from AccessControl.requestmethod import postonly
 
-import inspect
-from zExceptions import Forbidden
-from ZPublisher.HTTPRequest import HTTPRequest
-
-def _buildFacade(spec, docstring):
-    """Build a facade function, matching the decorated method in signature.
-
-    Note that defaults are replaced by None, and _curried will reconstruct
-    these to preserve mutable defaults.
-
-    """
-    args = inspect.formatargspec(formatvalue=lambda v: '=None', *spec)
-    callargs = inspect.formatargspec(formatvalue=lambda v: '', *spec)
-    return 'def _facade%s:\n    """%s"""\n    return _curried%s' % (
-        args, docstring, callargs)
-
-def postonly(callable):
-    """Only allow callable when request method is POST."""
-    spec = inspect.getargspec(callable)
-    args, defaults = spec[0], spec[3]
-    try:
-        r_index = args.index('REQUEST')
-    except ValueError:
-        raise ValueError('No REQUEST parameter in callable signature')
-
-    arglen = len(args)
-    if defaults is not None:
-        defaults = zip(args[arglen - len(defaults):], defaults)
-        arglen -= len(defaults)
-
-    def _curried(*args, **kw):
-        request = None
-        if len(args) > r_index:
-            request = args[r_index]
-
-        if isinstance(request, HTTPRequest):
-            if request.get('REQUEST_METHOD', 'GET').upper() != 'POST':
-                raise Forbidden('Request must be POST')
-
-        # Reconstruct keyword arguments
-        if defaults is not None:
-            args, kwparams = args[:arglen], args[arglen:]
-            for positional, (key, default) in zip(kwparams, defaults):
-                if positional is None:
-                    kw[key] = default
-                else:
-                    kw[key] = positional
-
-        return callable(*args, **kw)
-
-    facade_globs = dict(_curried=_curried)
-    exec _buildFacade(spec, callable.__doc__) in facade_globs
-    return facade_globs['_facade']
-
-from Products.CPSUserFolder.CPSUserFolder import CPSUserFolder
-CPSUserFolder.userFolderAddUser = postonly(CPSUserFolder.userFolderAddUser)
-CPSUserFolder.userFolderEditUser = postonly(CPSUserFolder.userFolderEditUser)
-CPSUserFolder.userFolderDelUsers = postonly(CPSUserFolder.userFolderDelUsers)
-CPSUserFolder.userFolderAddGroup = postonly(CPSUserFolder.userFolderAddGroup)
-CPSUserFolder.userFolderDelGroups = postonly(CPSUserFolder.userFolderDelGroups)
-
-from AccessControl.User import BasicUserFolder
-BasicUserFolder.manage_setUserFolderProperties = postonly(
-    BasicUserFolder.manage_setUserFolderProperties)
-BasicUserFolder._addUser = postonly(BasicUserFolder._addUser)
-BasicUserFolder._changeUser = postonly(BasicUserFolder._changeUser)
-BasicUserFolder._delUsers = postonly(BasicUserFolder._delUsers)
-
+# Zope not protected on Zope 2.9.7
 from AccessControl.Owned import Owned
 Owned.manage_takeOwnership = postonly(Owned.manage_takeOwnership)
 Owned.manage_changeOwnershipType = postonly(Owned.manage_changeOwnershipType)
-
-from AccessControl.PermissionMapping import RoleManager as PMRM
-PMRM.manage_setPermissionMapping = postonly(PMRM.manage_setPermissionMapping)
-
-from AccessControl.Role import RoleManager as RMRM
-RMRM.manage_acquiredPermissions = postonly(RMRM.manage_acquiredPermissions)
-RMRM.manage_permission = postonly(RMRM.manage_permission)
-RMRM.manage_changePermissions = postonly(RMRM.manage_changePermissions)
-RMRM.manage_addLocalRoles = postonly(RMRM.manage_addLocalRoles)
-RMRM.manage_setLocalRoles = postonly(RMRM.manage_setLocalRoles)
-RMRM.manage_delLocalRoles = postonly(RMRM.manage_delLocalRoles)
-RMRM._addRole = postonly(RMRM._addRole)
-RMRM._delRoles = postonly(RMRM._delRoles)
-
-from OFS.DTMLMethod import DTMLMethod
-DTMLMethod.manage_proxy = postonly(DTMLMethod.manage_proxy)
-
-from Products.PythonScripts.PythonScript import PythonScript
-PythonScript.manage_proxy = postonly(PythonScript.manage_proxy)
