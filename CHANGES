@@ -1,6 +1,6 @@
 Requires
 ~~~~~~~~
-- zope 2.9.7
+-
 New features
 ~~~~~~~~~~~~
 -
@@ -9,4 +9,4 @@ Bug fixes
 -
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
-- remove partially postonly patch
+- 
