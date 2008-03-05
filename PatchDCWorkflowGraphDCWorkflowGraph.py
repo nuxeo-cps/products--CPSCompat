@@ -31,7 +31,6 @@ manage_workflowGraph = PageTemplateFile(path, globals())
 manage_workflowGraph.__name__ = 'manage_workflowGraph'
 manage_workflowGraph._need__name__ = 0
 
-WorkflowDefinition.getGraph=getGraph
-WorkflowDefinition.manage_workflowGraph=manage_workflowGraph
-WorkflowDefinition.manage_options=tuple(WorkflowDefinition.manage_options)+(
-    {'label': 'Graph', 'action': 'manage_workflowGraph'},)
+WorkflowDefinition.getGraph = getGraph
+WorkflowDefinition.manage_workflowGraph = manage_workflowGraph
+WorkflowDefinition.manage_options = tuple(WorkflowDefinition.manage_options)
