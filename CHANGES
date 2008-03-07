@@ -6,9 +6,7 @@ New features
 -
 Bug fixes
 ~~~~~~~~~
-- Removed the postonlyfix since CPS now uses Zope >= 2.9.7.
-- Made only one tab, instead of two, for workflow graph on workflow definitions
-  if the product DCWorkflowGraph is present.
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 

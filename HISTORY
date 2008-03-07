@@ -1,4 +1,26 @@
 ===========================================================
+Package: CPSCompat 0.9.1
+===========================================================
+First release built by: madarche at: 2008-03-07T18:44:33
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSCompat/tags/0.9.1
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSCompat/trunk@52640
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Removed the postonlyfix since CPS now uses Zope >= 2.9.7.
+- Made only one tab, instead of two, for workflow graph on workflow definitions
+  if the product DCWorkflowGraph is present.
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSCompat 0.9.0
 ===========================================================
 First release built by: madarche at: 2007-10-19T12:18:47
