@@ -23,6 +23,9 @@ import PatchZODBTransaction
 from OFS.ObjectManager import ObjectManager
 from Globals import DTMLFile
 
+# Remove this fix when CPS uses Zope >= 2.9.7
+import postonlyfix
+
 # DCWorkflowGraph is not always present
 try:
     from Products import DCWorkflowGraph
