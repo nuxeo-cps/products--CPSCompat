@@ -23,15 +23,6 @@ import PatchZODBTransaction
 from OFS.ObjectManager import ObjectManager
 from Globals import DTMLFile
 
-# DCWorkflowGraph is not always present
-try:
-    from Products import DCWorkflowGraph
-except ImportError, e:
-    if str(e) != 'cannot import name DCWorkflowGraph':
-        raise
-else:
-    import PatchDCWorkflowGraphDCWorkflowGraph
-
 try:
     from Products import ExternalEditor
     # Monkey patch manage_main so that the urls are encoded properly
