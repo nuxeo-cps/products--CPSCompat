@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSCompat 0.9.2
+===========================================================
+First release built by: gracinet at: 2010-03-13T17:40:32
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- #2127: Moving patch enabling workflow graphs to CPSWorkflow
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSCompat 0.9.1
 ===========================================================
 First release built by: madarche at: 2008-03-07T18:44:33
