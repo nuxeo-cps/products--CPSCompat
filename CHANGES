@@ -3,7 +3,7 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
--
+- #2187: patching make_query to support unicode strings
 Bug fixes
 ~~~~~~~~~
 -

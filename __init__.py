@@ -19,6 +19,7 @@ import logging
 import sys
 
 import PatchZODBTransaction
+import PatchZTUtils
 
 from OFS.ObjectManager import ObjectManager
 from Globals import DTMLFile
