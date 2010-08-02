@@ -3,11 +3,10 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
-- #2187: patching make_query to support unicode strings
-- #2194: switch ZMI folder listings to UTF-8
+-
 Bug fixes
 ~~~~~~~~~
-- 
+-
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
