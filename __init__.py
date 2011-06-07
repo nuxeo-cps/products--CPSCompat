@@ -22,6 +22,7 @@ import PatchZODBTransaction
 import PatchZTUtils
 
 from OFS.ObjectManager import ObjectManager
+from App.Management import Navigation
 from Globals import DTMLFile
 
 try:
@@ -30,6 +31,9 @@ try:
     ObjectManager.manage_main = DTMLFile('manage_main', globals())
 except ImportError:
     if sys.exc_info()[2].tb_next is not None: raise
+
+# Sets the whole ZMI in UTF-8
+Navigation.manage_page_header = DTMLFile('manage_page_header', globals())
 
 logging.getLogger('CPSCompat').debug(
     "Patching for Zope/CMF forward compatibility")
