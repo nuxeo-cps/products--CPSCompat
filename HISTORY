@@ -1,4 +1,39 @@
 ===========================================================
+Package: CPSCompat 0.11.1
+===========================================================
+First release built by: gracinet at: 2010-12-30T13:00:42
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Reincluded some old tags
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
+Package: CPSCompat 0.11.0
+===========================================================
+First release built by: gracinet at: 2010-08-02T19:58:15
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- #2187: patching make_query to support unicode strings
+- #2194: switch ZMI folder listings to UTF-8
+Bug fixes
+~~~~~~~~~
+- 
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSCompat 0.10.0
 ===========================================================
 First release built by: gracinet at: 2010-07-26T22:28:10

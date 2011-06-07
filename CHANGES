@@ -3,10 +3,10 @@ Requires
 -
 New features
 ~~~~~~~~~~~~
-- #2187: patching make_query to support unicode strings
+- 
 Bug fixes
 ~~~~~~~~~
--
+- #2404: switched the whole ZMI to UTF-8
 New internal features
 ~~~~~~~~~~~~~~~~~~~~~
 - 
