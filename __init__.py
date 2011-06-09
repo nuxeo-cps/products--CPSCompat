@@ -32,7 +32,7 @@ try:
 except ImportError:
     if sys.exc_info()[2].tb_next is not None: raise
 
-# Sets the whole ZMI in UTF-8
+# #2404: Sets the whole ZMI in UTF-8
 Navigation.manage_page_header = DTMLFile('manage_page_header', globals())
 
 logging.getLogger('CPSCompat').debug(
