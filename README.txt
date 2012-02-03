@@ -6,9 +6,6 @@ CPSCompat
           - Julien Anguenot <ja@nuxeo.com>
           - Marc-Aurèle Darche <madarche@nuxeo.com>
 
-:Revision: $Id$
-
-
 This product is a forward-compatibility module for Zope and CMF. It
 changes Zope and CMF code by monkey patching to make available features
 that are checked in Zope or CMF sources, but not yet used in production
