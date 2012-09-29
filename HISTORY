@@ -16,6 +16,23 @@ New internal features
 - 
 
 ===========================================================
+Package: CPSCompat 0.12.1-CPS-3.5
+===========================================================
+First release built by: gracinet at: 2012-02-18T22:59:23
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- Nothing but cosmetic code changes
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSCompat 0.12.0-CPS-3.5
 ===========================================================
 First release built by: gracinet at: 2011-09-28T20:54:53
