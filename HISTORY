@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSCompat 0.13.1
+===========================================================
+First release built by: gracinet at: 2012-09-30T10:15:14
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- General merge from CPS-3.5 branch
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSCompat 0.13.0
 ===========================================================
 First release built by: gracinet at: 2012-01-21T22:23:45
